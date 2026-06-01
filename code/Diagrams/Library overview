@@ -1,0 +1,78 @@
+Overview
+The Random library is a built-in Python library used to generate random numbers and make random selections. It is commonly used in games, simulations, testing, and data analysis. Since it is included with Python, no separate installation is required.
+Import Statement:
+Python
+import random
+OOP Principles Analysis
+1. Encapsulation
+The Random class groups related methods such as randint(), random(), and choice() inside a single class. This keeps functionality organized and easy to use.
+Example:
+Python
+import random
+x = random.randint(1, 10)
+2. Inheritance
+Our custom class MyRandom inherits from Python's Random class and extends its functionality.
+Example:
+Python
+from random import Random
+
+class MyRandom(Random):
+    def lucky_number(self):
+        return self.randint(1, 100)
+3. Polymorphism
+The inherited methods from Random can be used through the MyRandom object without changing their implementation.
+Example:
+Python
+obj = MyRandom()
+print(obj.random())
+4. Abstraction
+Users do not need to know the internal algorithm used to generate random numbers. They simply call methods like randint() and get results.
+Example:
+Python
+import random
+print(random.randint(1, 50))
+Design Decision Analysis
+The Random library uses a class-based design that provides reusable methods for generating random values. This design improves code organization and allows developers to extend functionality through inheritance.
+Advantages
+Easy to use
+Reusable code
+Supports inheritance
+Built into Python
+Disadvantages
+Not suitable for cryptographic security
+Pseudo-random numbers are predictable with the same seed
+Comparison with Alternative Library
+Random vs NumPy Random
+Feature
+Random
+NumPy Random
+Built-in
+Yes
+No
+Easy to Learn
+Yes
+Moderate
+Performance
+Good
+Faster for large datasets
+Data Science Use
+Basic
+Advanced
+Conclusion: Random is suitable for beginners, while NumPy Random is better for scientific computing and large-scale data processing.
+Custom Extension
+Python
+from random import Random
+
+class MyRandom(Random):
+
+    def lucky_number(self):
+        return self.randint(1, 100)
+
+    def random_color(self):
+        colors = ["Red", "Blue", "Green", "Yellow"]
+        return self.choice(colors)
+
+obj = MyRandom()
+
+print("Lucky Number:", obj.lucky_number())
+print("Random Color:", obj.random_color())
